@@ -1,0 +1,14 @@
+.content {
+  grid-area: c;
+  background-color: cornflowerblue;
+}
+.item{
+	color:rgb(6, 20, 16);
+  margin: 15px;
+}
+.item img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-top: 15px;
+}
