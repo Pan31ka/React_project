@@ -8,8 +8,8 @@ const MyPost = () => {
         New post
       </div>
       <div >
-       <Post message='hi, how are you'/>
-       <Post message='it my first project'/>
+       <Post message='hi, how are you' like=' 15'/>
+       <Post message='it my first project'like=' 351'/>
        <Post/>
        <Post/>
        <Post/>
