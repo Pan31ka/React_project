@@ -1,0 +1,9 @@
+.item{
+    padding: 25px;
+}
+.border{
+    border: 5px groove;
+
+
+    background: linear-gradient(90deg, #cfecd0, #ffc5ca);
+}

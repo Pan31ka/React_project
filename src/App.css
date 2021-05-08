@@ -1,11 +1,11 @@
 .app-wrapper {
   margin: 0 auto;
   display: grid;
-  width: 1200px;
+  width: 1600px;
   grid-template-areas:
   "h h"
   "n c";
-
+ 
    grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
     /* grid-gap: 10px; */
@@ -13,8 +13,9 @@
 }
 .app-wrapper-content{
   grid-area: c;
-  background-color: blueviolet;
+  background: linear-gradient(90deg, #cfecd0, #ffc5ca);
 }
+
 
 
 .nav {
