@@ -12,22 +12,23 @@ import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 const App = (props) => {
-  return (
-    <BrowserRouter>
-      <div className='app-wrapper'>
-        <Header />
-        <Navbar />
-        <div className='app-wrapper-content'>
-          <Route path="/dialogs" component={Dialogs} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/news" component={News} />
-          <Route path="/music" component={Music} />
-          <Route path="/setting" component={Settings} />
-        </div>
+
+	return (
+		<BrowserRouter>
+			<div className='app-wrapper'>
+				<Header />
+				<Navbar />
+				<div className='app-wrapper-content'>
+					<Route path="/dialogs" render={() => <Dialogs DialogsData={props.DialogsData} MessagesData={props.MessagesData} />} />
+					<Route path="/profile" render={() => <Profile MyPostData={props.MyPostData} />} />
+					<Route path="/news" render={News} />
+					<Route path="/music" render={Music} />
+					<Route path="/setting" render={Settings} />
+				</div>
 
 
-      </div>
-    </BrowserRouter>);
+			</div>
+		</BrowserRouter>);
 }
 
 export default App;
