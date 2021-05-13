@@ -12,15 +12,15 @@ import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 const App = (props) => {
-
+	debugger;
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper'>
 				<Header />
 				<Navbar />
 				<div className='app-wrapper-content'>
-					<Route path="/dialogs" render={() => <Dialogs DialogsData={props.DialogsData} MessagesData={props.MessagesData} />} />
-					<Route path="/profile" render={() => <Profile MyPostData={props.MyPostData} />} />
+					<Route path="/dialogs" render={() => <Dialogs state={props.appState.MessagesPage} />} />
+					<Route path="/profile" render={() => <Profile state={props.appState.PostsPage} />} />
 					<Route path="/news" render={News} />
 					<Route path="/music" render={Music} />
 					<Route path="/setting" render={Settings} />
