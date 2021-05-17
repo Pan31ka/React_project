@@ -13,7 +13,7 @@ const MyPost = (props) => {
 			<textarea className={s1.border}> </textarea>
 		</div>
 		<div >
-			<button >Post this</button>
+			<button >Post this shit</button>
 		</div>
 		<div >
 			{MyPostEl}
