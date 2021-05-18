@@ -28,4 +28,14 @@ let state = {
 
 
 }
+export let addPost = (postMessage) => {
+
+	let newPost = {
+		id: 5,
+		text: postMessage,
+		like: 0,
+	};
+	state.PostsPage.MyPostData.push(newPost);
+	debugger;
+}
 export default state;
