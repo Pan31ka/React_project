@@ -1,3 +1,4 @@
+import { renderEniteTree } from "../render";
 
 let state = {
 
@@ -36,6 +37,6 @@ export let addPost = (postMessage) => {
 		like: 0,
 	};
 	state.PostsPage.MyPostData.push(newPost);
-	debugger;
+	renderEniteTree(state);
 }
 export default state;
