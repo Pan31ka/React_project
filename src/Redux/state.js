@@ -7,6 +7,7 @@ let state = {
 			{ id: 1, text: 'hi, how are you', like: '15' },
 			{ id: 2, text: 'it my first project', like: '351' }
 		],
+		newPostText: 'Test213'
 	},
 	MessagesPage: {
 		MessagesData: [
@@ -29,14 +30,20 @@ let state = {
 
 
 }
-export let addPost = (postMessage) => {
+export let addPost = () => {
 
 	let newPost = {
 		id: 5,
-		text: postMessage,
+		text: state.PostsPage.newPostText,
 		like: 0,
 	};
 	state.PostsPage.MyPostData.push(newPost);
+	state.PostsPage.newPostText = ' ';
 	renderEniteTree(state);
 }
+export let updatePostText = (newText) => {
+	state.PostsPage.newPostText = newText;
+	renderEniteTree(state);
+}
+
 export default state;
