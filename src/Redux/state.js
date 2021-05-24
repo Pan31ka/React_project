@@ -1,4 +1,6 @@
-import { renderEniteTree } from "../render";
+let renderEniteTree = () => {
+	console.log('state change');
+}
 
 let state = {
 
@@ -45,5 +47,7 @@ export let updatePostText = (newText) => {
 	state.PostsPage.newPostText = newText;
 	renderEniteTree(state);
 }
-
+export let subscribe = (observer) => {
+	renderEniteTree = observer//Наблюдатель 
+}
 export default state;
