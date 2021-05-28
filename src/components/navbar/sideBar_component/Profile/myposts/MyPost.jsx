@@ -6,6 +6,7 @@ const MyPost = (props) => {
 	let MyPostEl = props.MyPostData.map(p => <Post message={p.text} like={p.like} />)
 	let newPostElement = React.createRef();
 	let addPost = () => {
+		debugger;
 		props.addPost();
 
 
