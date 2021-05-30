@@ -29,12 +29,18 @@ let store = {
 
 
 	},
-	getState() {
-		return this._state;
-	},
 	CallSubscribe() {
 		console.log('state change');
 	},
+	getState() {
+		return this._state;
+	},
+	subscribe(observer) {
+		this._CallSubscribe = observer//Наблюдатель 
+	},
+
+
+
 	addPost() {
 
 		let newPost = {
@@ -50,12 +56,21 @@ let store = {
 		this._state.PostsPage.newPostText = newText;
 		this._CallSubscribe(this._state);
 	},
-	updatePostText(newText) {
-		this._state.PostsPage.newPostText = newText;
-		this._CallSubscribe(this._state);
-	},
-	subscribe(observer) {
-		this._CallSubscribe = observer//Наблюдатель 
+	dispatch(action) {
+		if (action.type === 'ADD-POST') {
+			let newPost = {
+				id: 5,
+				text: this._state.PostsPage.newPostText,
+				like: 0,
+			};
+			this._state.PostsPage.MyPostData.push(newPost);
+			this._state.PostsPage.newPostText = ' ';
+			this._CallSubscribe(this._state);
+		}
+		else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+			this._state.PostsPage.newPostText = action.newText;
+			this._CallSubscribe(this._state);
+		}
 	}
 }
 export default store;

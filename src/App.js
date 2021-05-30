@@ -20,7 +20,7 @@ const App = (props) => {
 				<Navbar />
 				<div className='app-wrapper-content'>
 					<Route path="/dialogs" render={() => <Dialogs state={props.appState.MessagesPage} />} />
-					<Route path="/profile" render={() => <Profile Profilestate={props.appState.PostsPage} addPost={props.addPost} updatePostText={props.updatePostText} />} />
+					<Route path="/profile" render={() => <Profile Profilestate={props.appState.PostsPage} dispatch={props.dispatch} />} />
 					<Route path="/news" render={News} />
 					<Route path="/music" render={Music} />
 					<Route path="/setting" render={Settings} />

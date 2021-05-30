@@ -15,7 +15,7 @@ import { BrowserRouter } from 'react-router-dom';
 let renderEniteTree = (state) => {
 	ReactDOM.render
 		(<BrowserRouter>
-			<App appState={store.getState()} addPost={store.addPost.bind(store)} updatePostText={store.updatePostText.bind(store)} />
+			<App appState={store.getState()} dispatch={store.dispatch.bind(store)} />
 		</BrowserRouter>,
 			document.getElementById('root')
 		);
