@@ -1,3 +1,7 @@
+const Add_Post = 'ADD-POST';
+const Update_New_Post = 'UPDATE-NEW-POST-TEXT';
+
+
 let store = {
 	_state: {
 
@@ -57,7 +61,7 @@ let store = {
 		this._CallSubscribe(this._state);
 	},
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
+		if (action.type === Add_Post) {
 			let newPost = {
 				id: 5,
 				text: this._state.PostsPage.newPostText,
@@ -67,10 +71,24 @@ let store = {
 			this._state.PostsPage.newPostText = ' ';
 			this._CallSubscribe(this._state);
 		}
-		else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+		else if (action.type === Update_New_Post) {
 			this._state.PostsPage.newPostText = action.newText;
 			this._CallSubscribe(this._state);
 		}
 	}
 }
+
+export let actionCreator = () => {
+	return {
+		type: Add_Post
+	}
+}
+
+export let updateNewTextActionCreator = (text) => {
+	return {
+		type: Update_New_Post,
+		newText: text
+	}
+}
+
 export default store;
