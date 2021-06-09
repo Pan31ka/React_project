@@ -1,7 +1,7 @@
 import React from 'react';
 import s1 from './MyPost.module.css'
 import Post from './post/post';
-import { actionCreator, updateNewTextActionCreator } from '../../../../../Redux/state.js';
+import { addPostCreator, updateNewTextCreator } from '../../../../../Redux/state.js';
 
 
 
@@ -15,7 +15,7 @@ const MyPost = (props) => {
 	let addPost = () => {
 		debugger;
 		//	let add = actionCreator();
-		props.dispatch(actionCreator());
+		props.dispatch(addPostCreator());
 
 
 	}
@@ -24,7 +24,7 @@ const MyPost = (props) => {
 		debugger;
 		let text = newPostElement.current.value;
 		//let action = updateNewTextActionCreator(text);
-		props.dispatch(updateNewTextActionCreator(text));
+		props.dispatch(updateNewTextCreator(text));
 
 	}
 	return <div className={s1.item}>

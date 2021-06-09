@@ -1,5 +1,8 @@
 const Add_Post = 'ADD-POST';
 const Update_New_Post = 'UPDATE-NEW-POST-TEXT';
+const Update_New_Message_Body = 'UPDATE_NEW_MESSAGE_BODY';
+const Send_Message = 'SEND_MESSAGE';
+
 
 
 let store = {
@@ -29,6 +32,7 @@ let store = {
 				{ id: 5, name: 'Nikita' },
 				{ id: 6, name: 'Nikita' }
 			],
+			NewMassageBody: 'Test'
 		},
 
 
@@ -74,21 +78,46 @@ let store = {
 		else if (action.type === Update_New_Post) {
 			this._state.PostsPage.newPostText = action.newText;
 			this._CallSubscribe(this._state);
+			console.log(action.newText);
+		}
+		else if (action.type === Update_New_Message_Body){
+			this._state.MessagesPage.NewMassageBody = action.message;
+			this._CallSubscribe(this._state);
+			console.log(action.message);
+		}
+		else if (action.type === Send_Message){
+			let message = this._state.MessagesPage.NewMassageBody;
+			this._state.MessagesPage.NewMassageBody = ' ';
+			this._state.MessagesPage.MessagesData.push({ id: 7, text: message });
+			this._CallSubscribe(this._state);
 		}
 	}
 }
 
-export let actionCreator = () => {
+export let addPostCreator = () => {
 	return {
 		type: Add_Post
 	}
 }
 
-export let updateNewTextActionCreator = (text) => {
+export let updateNewTextCreator = (text) => {
 	return {
 		type: Update_New_Post,
 		newText: text
 	}
 }
 
+export let updateMessageCreator  = (message) => {
+	return {
+		type: Update_New_Message_Body,
+		message: message
+	}
+}
+
+export let addMessageCreator = () => {
+	return {
+		type: Send_Message,
+		
+	}
+}
 export default store;
