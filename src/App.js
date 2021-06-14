@@ -12,7 +12,7 @@ import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 const App = (props) => {
-
+debugger;
 	return (
 		<BrowserRouter>
 			<div className='app-wrapper'>
