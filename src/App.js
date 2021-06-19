@@ -10,6 +10,7 @@ import Settings from './components/navbar/sideBar_component/Settings/settings';
 import News from './components/navbar/sideBar_component/News/news';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
+import DialogsContainer from './components/navbar/sideBar_component/Dialogs/dialogsContainer';
 
 const App = (props) => {
 debugger;
@@ -19,8 +20,8 @@ debugger;
 				<Header />
 				<Navbar />
 				<div className='app-wrapper-content'>
-					<Route path="/dialogs" render={() => <Dialogs state={props.appState.MessagesPage} dispatch={props.dispatch}/>} />
-					<Route path="/profile" render={() => <Profile Profilestate={props.appState.PostsPage} dispatch={props.dispatch} />} />
+					<Route path="/dialogs" render={() => <DialogsContainer store={props.store}/>} />
+					<Route path="/profile" render={() => <Profile store={props.store} />} />
 					<Route path="/news" render={News} />
 					<Route path="/music" render={Music} />
 					<Route path="/setting" render={Settings} />

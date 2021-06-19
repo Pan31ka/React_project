@@ -12,10 +12,12 @@ const MyPost = (props) => {
 
 	let MyPostEl = props.MyPostData.map(p => <Post message={p.text} like={p.like} />)
 	let newPostElement = React.createRef();
-	let addPost = () => {
+	
+	
+	let onAddPost = () => {
 		debugger;
-		//	let add = actionCreator();
-		props.dispatch(addPostCreator());
+	
+		props.addPost();
 
 
 	}
@@ -23,8 +25,7 @@ const MyPost = (props) => {
 	let onPostChange = () => {
 		debugger;
 		let text = newPostElement.current.value;
-		//let action = updateNewTextActionCreator(text);
-		props.dispatch(updateNewTextCreator(text));
+		props.updateNewTextCreator(text);
 
 	}
 	return <div className={s1.item}>
@@ -36,7 +37,7 @@ const MyPost = (props) => {
 			<textarea className={s1.border} onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
 		</div>
 		<div >
-			<button onClick={addPost}>Post this shit</button>
+			<button onClick={onAddPost}>Post this shit</button>
 		</div>
 		<div >
 			{MyPostEl}

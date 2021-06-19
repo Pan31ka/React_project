@@ -9,19 +9,23 @@ import { updateMessageCreator, addMessageCreator} from '../../../../Redux/Messag
 
 const Dialogs = (props) => {
 	debugger
+	let state = props.MessagesPage
+
+
 	let onSendMessageClick = () =>{
-		props.dispatch(addMessageCreator());
+		props.addMessageCreator();
 	}
 	let onNewMessageChange = (event) =>{
-		let body = event.target.value;	
-		props.dispatch(updateMessageCreator(body));
+		let body = event.target.value;
+		props.updateMessageCreator(body);
+		
 
 	}
 
 
-	let DialogsElement = props.state.DialogsData.map(d => <DialogItem name={d.name} id={d.id}  />)
-	let MessagesElement = props.state.MessagesData.map(m => <MessageItem text={m.text} />)
-	let NewMassageBody = props.state.NewMassageBody;
+	let DialogsElement = state.DialogsData.map(d => <DialogItem name={d.name} id={d.id}  />)
+	let MessagesElement = state.MessagesData.map(m => <MessageItem text={m.text} />)
+	let NewMassageBody = state.NewMassageBody;
 	return (
 		<div className={s.item}>
 			<div className={s.dialogs}>
